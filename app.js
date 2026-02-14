@@ -1,11 +1,29 @@
+const DEFAULT_ONBOARDING_CONFIG = {
+  endpoint: 'https://formsubmit.co/ajax/tenderpilot.ops@gmail.com',
+  method: 'POST',
+  contentType: 'application/json',
+  headers: {
+    Accept: 'application/json',
+  },
+};
+
 async function loadOnboardingConfig() {
-  try {
-    const res = await fetch('../config/onboarding.endpoint.example.json', { cache: 'no-store' });
-    if (!res.ok) throw new Error('config fetch failed');
-    return await res.json();
-  } catch (_err) {
-    return null;
+  const candidates = [
+    './onboarding.endpoint.json',
+    '../config/onboarding.endpoint.example.json',
+  ];
+
+  for (const path of candidates) {
+    try {
+      const res = await fetch(path, { cache: 'no-store' });
+      if (!res.ok) continue;
+      return await res.json();
+    } catch (_err) {
+      // try next config candidate
+    }
   }
+
+  return DEFAULT_ONBOARDING_CONFIG;
 }
 
 async function loadPaymentsConfig() {
@@ -62,7 +80,7 @@ function applyPaymentLinks(config) {
 
 function leadPayload(form) {
   const fd = new FormData(form);
-  return {
+  const payload = {
     name: String(fd.get('name') || '').trim(),
     email: String(fd.get('email') || '').trim(),
     company: String(fd.get('company') || '').trim(),
@@ -72,6 +90,10 @@ function leadPayload(form) {
     consent: Boolean(fd.get('consent')),
     submittedAt: new Date().toISOString(),
   };
+
+  payload._subject = 'TenderPilot early-access lead';
+  payload.message = `Lead: ${payload.name} | ${payload.email} | ${payload.company} | ${payload.trade} | ${payload.region}`;
+  return payload;
 }
 
 function persistLeadLocal(payload) {
