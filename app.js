@@ -1,5 +1,5 @@
 const DEFAULT_ONBOARDING_CONFIG = {
-  endpoint: 'https://formsubmit.co/ajax/tenderpilot.ops@gmail.com',
+  endpoint: 'https://formsubmit.co/ajax/b0d33e5dfc0fe5a39f60155d67c67dbb',
   method: 'POST',
   contentType: 'application/json',
   headers: {
