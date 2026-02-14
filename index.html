@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TenderPilot | Find the right tenders faster</title>
+  <meta name="description" content="TenderPilot sends trade-specific tender alerts so you can bid faster with less noise." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <p class="eyebrow">Built for Australian subcontractors and SMEs</p>
+      <h1>Win more tenders with less time spent searching</h1>
+      <p class="lead">
+        TenderPilot filters noisy tender feeds into high-fit opportunities by trade and region,
+        then sends clean daily summaries your team can act on.
+      </p>
+      <a class="btn primary" href="#cta">Get My First Matches</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section container">
+      <h2>Why teams use TenderPilot</h2>
+      <div class="grid three">
+        <article class="card">
+          <h3>Less noise</h3>
+          <p>Only alerts that match your trade, scope, and region.</p>
+        </article>
+        <article class="card">
+          <h3>Faster response</h3>
+          <p>Short daily summaries with key details and links to source notices.</p>
+        </article>
+        <article class="card">
+          <h3>More consistency</h3>
+          <p>Simple routines for business development without hiring extra admin.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section alt" id="pricing">
+      <div class="container">
+        <h2>Simple pricing</h2>
+        <div class="grid three">
+          <article class="card pricing">
+            <h3>Free</h3>
+            <p class="price">$0</p>
+            <p class="muted">3 alerts / week</p>
+            <ul>
+              <li>Single trade profile</li>
+              <li>Single region</li>
+              <li>Email alert digest</li>
+            </ul>
+          </article>
+          <article class="card pricing featured">
+            <p class="badge">Most Popular</p>
+            <h3>Starter</h3>
+            <p class="price">$29<span>/mo</span></p>
+            <ul>
+              <li>Daily alerts</li>
+              <li>Up to 3 trade profiles</li>
+              <li>Up to 3 regions</li>
+              <li>Priority support</li>
+            </ul>
+            <a class="btn primary pricing-cta" data-plan-checkout="starter" href="#cta">Join waitlist</a>
+          </article>
+          <article class="card pricing">
+            <h3>Pro</h3>
+            <p class="price">$79<span>/mo</span></p>
+            <ul>
+              <li>Unlimited trade profiles</li>
+              <li>National region coverage</li>
+              <li>Team inbox routing</li>
+              <li>Enhanced summary insights</li>
+            </ul>
+            <a class="btn primary pricing-cta" data-plan-checkout="pro" href="#cta">Join waitlist</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="cta">
+      <h2>Get early access</h2>
+      <p class="muted">Tell us your focus and we’ll send a tailored sample alert set.</p>
+
+      <form class="lead-form" action="http://localhost:8787/api/leads" method="post">
+        <label>
+          Name
+          <input type="text" name="name" required />
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" required />
+        </label>
+        <label>
+          Company
+          <input type="text" name="company" required />
+        </label>
+        <label>
+          Trade
+          <input type="text" name="trade" placeholder="e.g. Electrical, Civil, HVAC" required />
+        </label>
+        <label>
+          Region
+          <input type="text" name="region" placeholder="e.g. SA, VIC Metro, NSW North" required />
+        </label>
+        <label class="consent-row">
+          <input type="checkbox" name="consent" required />
+          I consent to TenderPilot contacting me about early access and sample alerts.
+        </label>
+        <button class="btn primary" type="submit">Get My First Matches</button>
+        <p class="form-status" data-form-status aria-live="polite"></p>
+      </form>
+
+      <p class="form-note">
+        Form endpoint integration placeholder: set your capture URL in
+        <code>config/onboarding.endpoint.example.json</code>.
+      </p>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <h2>FAQ</h2>
+        <div class="faq">
+          <details>
+            <summary>Who is TenderPilot for?</summary>
+            <p>Trade businesses, subcontractors, and SMEs that want more relevant tender visibility without manual searching.</p>
+          </details>
+          <details>
+            <summary>How are alerts delivered?</summary>
+            <p>By email digest, with direct links to original notices and concise summaries.</p>
+          </details>
+          <details>
+            <summary>Can I change my trade and region later?</summary>
+            <p>Yes, profiles can be updated as your pipeline or service area changes.</p>
+          </details>
+          <details>
+            <summary>Is this an official government service?</summary>
+            <p>No. TenderPilot is an independent aggregation and summary service.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© TenderPilot. Local prototype assets only.</p>
+    </div>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
